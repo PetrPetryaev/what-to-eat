@@ -9,143 +9,159 @@
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body {
     margin: 0; padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(180deg, #fff3e0 0%, #ffe0b2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #faf8f5;
     min-height: 100vh;
-    color: #3e2723;
+    color: #1c1c1c;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern", "liga", "ss01";
+    touch-action: manipulation;
   }
+  button, .tab, .dish-item, .checkbox-label, .close-btn { touch-action: manipulation; }
   .app {
-    max-width: 520px;
+    max-width: 480px;
     margin: 0 auto;
-    padding: 20px 16px 80px;
+    padding: 32px 20px 100px;
     min-height: 100vh;
   }
   h1 {
-    text-align: center;
-    font-size: 28px;
-    margin: 8px 0 20px;
-    color: #bf360c;
+    font-size: 30px;
     font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0 0 28px;
+    color: #1c1c1c;
+    text-align: left;
+    line-height: 1.1;
   }
   .tabs {
     display: flex;
-    gap: 8px;
-    background: #fff;
-    padding: 6px;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(191, 54, 12, 0.08);
-    margin-bottom: 20px;
+    gap: 0;
+    background: #f0ece5;
+    padding: 3px;
+    border-radius: 10px;
+    margin-bottom: 16px;
   }
   .tab {
     flex: 1;
-    padding: 14px 12px;
+    padding: 9px 12px;
     border: none;
     background: transparent;
-    font-size: 17px;
-    font-weight: 600;
-    color: #8d6e63;
-    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8a8680;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: color 0.12s, background 0.12s;
+    letter-spacing: -0.01em;
+    font-family: inherit;
   }
   .tab.active {
-    background: linear-gradient(135deg, #ff7043, #ff5722);
-    color: white;
-    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
+    background: #ffffff;
+    color: #1c1c1c;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
   .suggestion-card {
-    background: white;
-    border-radius: 24px;
-    padding: 32px 20px;
+    background: #ffffff;
+    border: 1px solid #ece7de;
+    border-radius: 14px;
+    padding: 56px 24px;
     text-align: center;
-    box-shadow: 0 4px 16px rgba(191, 54, 12, 0.1);
-    margin-bottom: 16px;
-    min-height: 180px;
+    margin-bottom: 14px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
   }
-  .suggestion-card.animate { transform: scale(1.02); }
+  .suggestion-card.animate { transform: scale(1.005); }
   .suggestion-label {
-    font-size: 13px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #a1887f;
-    margin-bottom: 12px;
-    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8a39a;
+    margin-bottom: 14px;
+    font-weight: 500;
   }
   .suggestion-dish {
-    font-size: 26px;
-    font-weight: 700;
-    color: #3e2723;
-    line-height: 1.3;
-    min-height: 34px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #1c1c1c;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    min-height: 36px;
   }
   .suggestion-dish.empty {
     font-size: 17px;
-    color: #a1887f;
-    font-weight: 500;
+    color: #a8a39a;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
   .btn {
     width: 100%;
-    padding: 16px;
+    padding: 14px 16px;
     border: none;
-    border-radius: 14px;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    -webkit-appearance: none;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, #ff7043, #ff5722);
-    color: white;
-    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
-    margin-bottom: 10px;
-  }
-  .btn-primary:active { transform: scale(0.98); box-shadow: 0 2px 6px rgba(255, 87, 34, 0.3); }
-  .btn-secondary {
-    background: white;
-    color: #5d4037;
-    border: 2px solid #ffccbc;
-    margin-bottom: 10px;
-  }
-  .btn-secondary:active { background: #fff3e0; }
-  .btn-ghost {
-    background: transparent;
-    color: #8d6e63;
-    padding: 10px;
+    border-radius: 10px;
     font-size: 15px;
     font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s ease;
+    -webkit-appearance: none;
+    letter-spacing: -0.01em;
+    font-family: inherit;
   }
-  .row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .btn-primary {
+    background: #1c1c1c;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  .btn-primary:active {
+    background: #000000;
+    transform: scale(0.995);
+  }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-secondary {
+    background: #ffffff;
+    color: #1c1c1c;
+    border: 1px solid #ece7de;
+    margin-bottom: 8px;
+  }
+  .btn-secondary:active { background: #f5f1e9; }
+  .btn-ghost {
+    background: transparent;
+    color: #8a8680;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .row { display: flex; gap: 8px; margin-bottom: 8px; }
   .row .btn { margin-bottom: 0; }
 
   /* Modal */
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(62, 39, 35, 0.55);
+    background: rgba(28, 28, 28, 0.38);
     display: none;
     align-items: flex-end;
     justify-content: center;
     z-index: 100;
     animation: fade 0.2s;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
   .modal-overlay.open { display: flex; }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
   .modal {
-    background: white;
+    background: #ffffff;
     width: 100%;
-    max-width: 520px;
-    border-radius: 24px 24px 0 0;
+    max-width: 480px;
+    border-radius: 20px 20px 0 0;
     padding: 20px;
     max-height: 85vh;
     overflow-y: auto;
-    animation: slideUp 0.25s;
+    animation: slideUp 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   @keyframes slideUp {
     from { transform: translateY(100%); }
@@ -155,152 +171,170 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #ffe0b2;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f0ece5;
   }
   .modal-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #3e2723;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #1c1c1c;
   }
   .close-btn {
-    background: #ffe0b2;
+    background: transparent;
     border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    font-size: 18px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
     cursor: pointer;
-    color: #5d4037;
+    color: #a8a39a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 6px;
+    transition: color 0.12s, background 0.12s;
   }
+  .close-btn:hover { color: #1c1c1c; background: #f5f1e9; }
   .dish-list { list-style: none; padding: 0; margin: 0; }
   .dish-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 12px;
-    border-radius: 12px;
-    margin-bottom: 6px;
-    background: #fff8f3;
+    padding: 12px 10px;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    background: transparent;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background 0.12s;
   }
-  .dish-item:active { background: #ffe0b2; }
+  .dish-item:active, .dish-item:hover { background: #f5f1e9; }
   .dish-info { flex: 1; min-width: 0; }
   .dish-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #3e2723;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1c1c1c;
     word-break: break-word;
+    letter-spacing: -0.01em;
   }
   .dish-tags {
     display: flex;
-    gap: 6px;
-    margin-top: 4px;
+    gap: 4px;
+    margin-top: 5px;
   }
   .tag {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 600;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.08em;
   }
-  .tag-lunch { background: #ffe0b2; color: #bf360c; }
-  .tag-dinner { background: #d1c4e9; color: #4527a0; }
+  .tag-lunch { background: #f0ece5; color: #8a8680; }
+  .tag-dinner { background: #e4ded2; color: #625d54; }
   .delete-btn {
     background: transparent;
     border: none;
-    font-size: 18px;
-    color: #bf360c;
+    font-size: 14px;
+    color: #c4beb2;
     cursor: pointer;
-    padding: 8px 12px;
-    opacity: 0.5;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.12s;
   }
-  .delete-btn:active { opacity: 1; }
+  .delete-btn:hover { color: #1c1c1c; }
 
   /* Form */
   .form-group { margin-bottom: 14px; }
   .form-label {
     display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: #5d4037;
-    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8a8680;
+    margin-bottom: 7px;
+    letter-spacing: -0.005em;
+    text-transform: none;
   }
   .form-input {
     width: 100%;
-    padding: 14px;
-    border: 2px solid #ffccbc;
-    border-radius: 12px;
+    padding: 12px 14px;
+    border: 1px solid #ece7de;
+    border-radius: 10px;
     font-size: 16px;
-    background: #fff8f3;
-    color: #3e2723;
+    background: #ffffff;
+    color: #1c1c1c;
+    font-family: inherit;
+    letter-spacing: -0.01em;
     -webkit-appearance: none;
+    transition: border-color 0.12s;
   }
   .form-input:focus {
     outline: none;
-    border-color: #ff7043;
-    background: white;
+    border-color: #1c1c1c;
   }
+  .form-input::placeholder { color: #c4beb2; }
   .checkbox-group {
     display: flex;
-    gap: 10px;
+    gap: 8px;
   }
   .checkbox-label {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 14px;
-    background: #fff8f3;
-    border: 2px solid #ffccbc;
-    border-radius: 12px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #ece7de;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: 600;
-    color: #8d6e63;
+    font-weight: 500;
+    font-size: 14px;
+    color: #8a8680;
     user-select: none;
-    transition: all 0.15s;
+    transition: all 0.12s;
+    letter-spacing: -0.01em;
   }
   .checkbox-label input { display: none; }
   .checkbox-label.checked {
-    background: #ff7043;
-    border-color: #ff7043;
-    color: white;
+    background: #1c1c1c;
+    border-color: #1c1c1c;
+    color: #ffffff;
   }
   .empty-state {
     text-align: center;
     padding: 40px 20px;
-    color: #a1887f;
+    color: #a8a39a;
+    font-size: 14px;
   }
   .hint {
     text-align: center;
-    font-size: 13px;
-    color: #a1887f;
-    margin-top: 14px;
+    font-size: 12px;
+    color: #a8a39a;
+    margin-top: 16px;
+    letter-spacing: -0.005em;
   }
 </style>
 </head>
 <body>
 <div class="app">
-  <h1>🍽 Что поесть?</h1>
+  <h1>Что поесть?</h1>
 
   <div class="tabs">
-    <button class="tab active" data-meal="lunch">☀️ Обед</button>
-    <button class="tab" data-meal="dinner">🌙 Ужин</button>
+    <button class="tab active" data-meal="lunch">Обед</button>
+    <button class="tab" data-meal="dinner">Ужин</button>
   </div>
 
   <div class="suggestion-card" id="suggestionCard">
-    <div class="suggestion-label" id="suggestionLabel">Нажми предложи</div>
-    <div class="suggestion-dish empty" id="suggestionDish">Что сегодня на обед?</div>
+    <div class="suggestion-label" id="suggestionLabel">На обед</div>
+    <div class="suggestion-dish empty" id="suggestionDish">Нажмите «Предложить»</div>
   </div>
 
-  <button class="btn btn-primary" id="suggestBtn">🎲 Предложи!</button>
+  <button class="btn btn-primary" id="suggestBtn">Предложить</button>
 
   <div class="row">
-    <button class="btn btn-secondary" id="listBtn">📋 Весь список</button>
-    <button class="btn btn-secondary" id="addBtn">➕ Добавить</button>
+    <button class="btn btn-secondary" id="listBtn">Список</button>
+    <button class="btn btn-secondary" id="addBtn">Добавить</button>
   </div>
 
   <div class="hint" id="hint"></div>
@@ -333,11 +367,11 @@
       <div class="checkbox-group">
         <label class="checkbox-label checked" id="lunchCheckLabel">
           <input type="checkbox" id="lunchCheck" checked>
-          ☀️ Обед
+          Обед
         </label>
         <label class="checkbox-label" id="dinnerCheckLabel">
           <input type="checkbox" id="dinnerCheck">
-          🌙 Ужин
+          Ужин
         </label>
       </div>
     </div>
@@ -434,8 +468,8 @@
       t.classList.toggle("active", t.dataset.meal === currentMeal);
     });
     // Reset card when switching
-    const label = currentMeal === "lunch" ? "Нажми предложи" : "Нажми предложи";
-    const placeholder = currentMeal === "lunch" ? "Что сегодня на обед?" : "Что сегодня на ужин?";
+    const label = currentMeal === "lunch" ? "На обед" : "На ужин";
+    const placeholder = "Нажмите «Предложить»";
     $("suggestionLabel").textContent = label;
     const dishEl = $("suggestionDish");
     dishEl.textContent = placeholder;
@@ -447,7 +481,7 @@
 
   function updateSuggestBtn() {
     const pool = filterForMeal(currentMeal);
-    $("suggestBtn").textContent = lastSuggested ? "🔄 Другой вариант" : "🎲 Предложи!";
+    $("suggestBtn").textContent = lastSuggested ? "Другой вариант" : "Предложить";
     $("suggestBtn").disabled = pool.length === 0;
     $("suggestBtn").style.opacity = pool.length === 0 ? "0.5" : "1";
   }
