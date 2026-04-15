@@ -314,6 +314,28 @@
     margin-top: 16px;
     letter-spacing: -0.005em;
   }
+
+  /* Mobile: stretch suggestion card between header and bottom controls */
+  @media (max-width: 520px) {
+    html, body { height: 100%; }
+    .app {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 20px 16px 20px;
+    }
+    h1 { margin-bottom: 18px; font-size: 26px; }
+    .tabs { margin-bottom: 12px; }
+    .suggestion-card {
+      flex: 1;
+      min-height: 0;
+      padding: 32px 20px;
+      margin-bottom: 14px;
+    }
+    .suggestion-dish { font-size: 28px; }
+    .hint { margin-top: 12px; }
+  }
 </style>
 </head>
 <body>
